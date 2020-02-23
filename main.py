@@ -6,8 +6,6 @@ from imageio import imread
 
 
 def calcCentroids(X, k):
-    cor_x = list()
-    cor_y = list()
     print('k=%d:' % k)
     centroids = init_centroids.init_centroids(X, k)
     # print centroida - iteration 0
@@ -39,10 +37,10 @@ def calcCentroids(X, k):
         cor_y.append(loss)"""
 
         for centroidIndex in clusters:
-            centroids[centroidIndex] = np.average(clusters[centroidIndex], axis=0)
+            centroids[centroidIndex] = np.average(clusters[centroidIndex],
+                                                  axis=0)
 
-        print('iter %d:' %i,print_cent(centroids))
-
+        print('iter %d:' % i, print_cent(centroids))
 
     """plt.plot(cor_x,cor_y)
     plt.title("k = %d" %k)
@@ -63,11 +61,12 @@ def load_data():
 
 
 def plotPic(X):
-    A_norm = X.reshape(128,128, 3)
+    A_norm = X.reshape(128, 128, 3)
     # plot the image
     plt.imshow(A_norm)
     plt.grid(False)
     plt.show()
+
 
 # picture by centroids
 def create_pic(X, centroids):
@@ -86,20 +85,20 @@ def calc_distance(centroid, pixel):
     for i in range(len(centroid)):
         distance += pow((centroid[i] - pixel[i]), 2)
     distance = math.sqrt(distance)
-    return pow(distance,2)
+    return pow(distance, 2)
 
 
 def print_cent(cent):
     if type(cent) == list:
         cent = np.asarray(cent)
     if len(cent.shape) == 1:
-        return ' '.join(str(np.floor(100 * cent) / 100).split()).replace('[ ', '[').replace('\n', ' ').replace(' ]',
-                                                                                                               ']').replace(
+        return ' '.join(str(np.floor(100 * cent) / 100).split()) \
+            .replace('[ ', '[').replace('\n', ' ').replace(' ]', ']').replace(
             ' ', ', ')
     else:
-        return ' '.join(str(np.floor(100 * cent) / 100).split()).replace('[ ', '[').replace('\n', ' ').replace(' ]',
-                                                                                                               ']').replace(
-            ' ', ', ')[1:-1]
+        return ' '.join(str(np.floor(100 * cent) / 100).split()) \
+                   .replace('[ ', '[').replace('\n', ' ') \
+                   .replace(' ]', ']').replace(' ', ', ')[1:-1]
 
 
 if __name__ == '__main__':
