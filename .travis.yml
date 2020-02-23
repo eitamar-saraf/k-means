@@ -13,7 +13,7 @@ jobs:
     - stage: Lint check
       python: "3.6"
       install: pip install flake8
-      script: flake8
+      script: flake8 ./
 
     - stage: Test
       python: "3.6"
