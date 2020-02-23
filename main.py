@@ -6,8 +6,6 @@ from imageio import imread
 
 
 def calcCentroids(X, k):
-    cor_x = list()
-    cor_y = list()
     print('k=%d:' % k)
     centroids = init_centroids.init_centroids(X, k)
     # print centroida - iteration 0
@@ -39,7 +37,8 @@ def calcCentroids(X, k):
         cor_y.append(loss)"""
 
         for centroidIndex in clusters:
-            centroids[centroidIndex] = np.average(clusters[centroidIndex], axis=0)
+            centroids[centroidIndex] = np.average(clusters[centroidIndex],
+                                                  axis=0)
 
         print('iter %d:' % i, print_cent(centroids))
 
@@ -93,13 +92,13 @@ def print_cent(cent):
     if type(cent) == list:
         cent = np.asarray(cent)
     if len(cent.shape) == 1:
-        return ' '.join(str(np.floor(100 * cent) / 100).split()).replace('[ ', '[').replace('\n', ' ').replace(' ]',
-                                                                                                               ']').replace(
+        return ' '.join(str(np.floor(100 * cent) / 100).split()) \
+            .replace('[ ', '[').replace('\n', ' ').replace(' ]', ']').replace(
             ' ', ', ')
     else:
-        return ' '.join(str(np.floor(100 * cent) / 100).split()).replace('[ ', '[').replace('\n', ' ').replace(' ]',
-                                                                                                               ']').replace(
-            ' ', ', ')[1:-1]
+        return ' '.join(str(np.floor(100 * cent) / 100).split()) \
+                   .replace('[ ', '[').replace('\n', ' ') \
+                   .replace(' ]', ']').replace(' ', ', ')[1:-1]
 
 
 if __name__ == '__main__':
