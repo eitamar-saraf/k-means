@@ -1,4 +1,5 @@
-[![travis.io](https://travis-ci.com/itamar-saraf/k-means.svg?branch=master)]
+![travis.io](https://travis-ci.com/itamar-saraf/k-means.svg?branch=master)
+
 
 
 
