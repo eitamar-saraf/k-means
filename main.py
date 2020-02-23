@@ -41,8 +41,7 @@ def calcCentroids(X, k):
         for centroidIndex in clusters:
             centroids[centroidIndex] = np.average(clusters[centroidIndex], axis=0)
 
-        print('iter %d:' %i,print_cent(centroids))
-
+        print('iter %d:' % i, print_cent(centroids))
 
     """plt.plot(cor_x,cor_y)
     plt.title("k = %d" %k)
@@ -63,11 +62,12 @@ def load_data():
 
 
 def plotPic(X):
-    A_norm = X.reshape(128,128, 3)
+    A_norm = X.reshape(128, 128, 3)
     # plot the image
     plt.imshow(A_norm)
     plt.grid(False)
     plt.show()
+
 
 # picture by centroids
 def create_pic(X, centroids):
@@ -86,7 +86,7 @@ def calc_distance(centroid, pixel):
     for i in range(len(centroid)):
         distance += pow((centroid[i] - pixel[i]), 2)
     distance = math.sqrt(distance)
-    return pow(distance,2)
+    return pow(distance, 2)
 
 
 def print_cent(cent):
