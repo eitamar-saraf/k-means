@@ -1,2 +1,2 @@
 # k-means
-k-means algorithm for image compression. from scratch
+Implentation  from scratch to k-means algorithm for image compression.
